@@ -1,0 +1,17 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "Algorithms and data structures implemented in JavaScripts",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha --require babel-register --recursive"
+  },
+  "author": "fyibmsd",
+  "repository": "git@github.com:fyibmsd/algorithms.git",
+  "license": "MIT"
+}
