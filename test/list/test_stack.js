@@ -3,9 +3,9 @@
 import assert from 'assert';
 import Stack from '../../src/list/Stack';
 
-describe('Test Stack', () => {
+describe('test stack', () => {
 
-    describe('Create stack', () => {
+    describe('create stack', () => {
         it('create empty stack', () => {
             let stack = new Stack;
 
@@ -14,7 +14,7 @@ describe('Test Stack', () => {
         });
     });
 
-    describe('Operating stack', () => {
+    describe('operating stack', () => {
         let stack = new Stack;
         let elements = ['A', 'B', 'C', 'D'];
 

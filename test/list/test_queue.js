@@ -1,11 +1,11 @@
 'use strict';
 
 import assert from 'assert';
-import Queue from '../../src/list/Queue'
+import Queue from '../../src/list/Queue';
 
-describe('Test Queue', () => {
+describe('test queue', () => {
 
-    describe('Create queue', () => {
+    describe('create queue', () => {
         it('create empty queue', () => {
             let queue = new Queue;
 
@@ -14,7 +14,7 @@ describe('Test Queue', () => {
         });
     });
 
-    describe('Operating queue', () => {
+    describe('operating queue', () => {
         let queue = new Queue;
         let elements = ['A', 'B', 'C', 'D'];
 
