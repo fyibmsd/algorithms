@@ -2,6 +2,7 @@
 
 /**
  * Insertion sort
+ * T = O(n^2)
  *
  * @param array {Array}
  *

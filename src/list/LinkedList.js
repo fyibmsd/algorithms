@@ -20,6 +20,9 @@ export default class LinkedList {
             args.map(value => this.pushBack(value));
     }
 
+    /**
+     * T = O(1)
+     * */
     pushFront(value) {
         let node = new ListNode(value);
 
@@ -32,6 +35,9 @@ export default class LinkedList {
         this.length++;
     }
 
+    /**
+     * T = O(1)
+     * */
     pushBack(value) {
         let node = new ListNode(value);
 
@@ -45,6 +51,9 @@ export default class LinkedList {
         this.length++;
     }
 
+    /**
+     * T = O(1)
+     * */
     popFront() {
         if (this.length === 0)
             return null;
@@ -56,6 +65,9 @@ export default class LinkedList {
         return node.value;
     }
 
+    /**
+     * T = O(n)
+     * */
     popBack() {
         if (this.length === 0)
             return null;
@@ -78,6 +90,9 @@ export default class LinkedList {
         return tail.value;
     }
 
+    /**
+     * T = O(1)
+     * */
     isEmpty() {
         return this.length === 0;
     }

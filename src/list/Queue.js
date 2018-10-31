@@ -11,14 +11,23 @@ export default class Queue {
         return this.queue.length;
     }
 
+    /**
+     * T = O(1)
+     * */
     enqueue(value) {
         this.queue.pushBack(value);
     }
 
+    /**
+     * T = O(1)
+     * */
     dequeue() {
         return this.queue.popFront();
     }
 
+    /**
+     * T = O(1)
+     * */
     isEmpty() {
         return this.queue.isEmpty();
     }

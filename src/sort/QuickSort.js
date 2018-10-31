@@ -2,6 +2,7 @@
 
 /**
  * Quick sort
+ * T = O(nlogn)
  *
  * @param array {Array}
  *

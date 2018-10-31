@@ -11,14 +11,23 @@ export default class Stack {
         return this.stack.length;
     }
 
+    /**
+     * T = O(1)
+     * */
     push(value) {
         this.stack.pushFront(value);
     }
 
+    /**
+     * T = O(1)
+     * */
     pop() {
         return this.stack.popFront();
     }
 
+    /**
+     * T = O(1)
+     * */
     isEmpty() {
         return this.stack.isEmpty();
     }
