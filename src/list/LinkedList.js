@@ -58,7 +58,7 @@ export default class LinkedList {
         if (this.length === 0)
             return null;
 
-        let node = this.head;
+        let node  = this.head;
         this.head = this.head.next;
         this.length--;
 
