@@ -1,5 +1,7 @@
 'use strict';
 
+import { swap } from '.';
+
 /**
  * Bubble sort
  * T = O(n^2)
@@ -12,9 +14,7 @@ export default function BubbleSort(array) {
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array.length - i - 1; j++) {
             if (array[j] > array[j + 1]) {
-                let tmp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = tmp;
+                swap(array, j, j + 1);
             }
         }
     }
