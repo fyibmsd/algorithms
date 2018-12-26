@@ -18,5 +18,5 @@ export default function QuickSort(array) {
     for (let i = 1; i < array.length; i++)
         array[i] > pivot ? right.push(array[i]) : left.push(array[i]);
 
-    return QuickSort(left).concat([pivot], QuickSort(right));
+    return [...QuickSort(left), pivot, ...QuickSort(right)];
 }
