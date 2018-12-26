@@ -3,7 +3,6 @@
 import assert from 'assert';
 import { createMultiDim } from '../../src/algorithms';
 
-
 describe('test array', () => {
     it('should create multidimensional array', () => {
         let double = [[0, 0, 0], [0, 0, 0]];
