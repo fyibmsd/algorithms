@@ -1,13 +1,9 @@
-'use strict';
-
-import BinaryTree from "./BinaryTree";
+import BinaryTree from './binary-tree';
 
 export default class BinarySearchTree extends BinaryTree {
-    /**
-     * 二叉树搜索
-     *
-     * */
-    contains(value) {
+
+    // binary search
+    find(value) {
         let current = this.root;
 
         while (current) {
@@ -16,9 +12,10 @@ export default class BinarySearchTree extends BinaryTree {
             else if (value < current.value)
                 current = current.left;
             else
-                return true;
+                return current;
         }
 
-        return false;
+        return null;
     }
+
 }

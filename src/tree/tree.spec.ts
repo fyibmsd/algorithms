@@ -1,4 +1,5 @@
 import BinaryTree from './binary-tree';
+import BinarySearchTree from './binary-search-tree';
 
 import { expect } from 'chai';
 
@@ -43,6 +44,26 @@ describe('test binary tree', () => {
         expect(binaryTree.inOrder()).deep.equal([4, 2, 1, 3, 6, 5, 7]);
 
         expect(binaryTree.postOrder()).deep.equal([1, 3, 2, 5, 7, 6, 4]);
+    });
+
+    it('should invert binary tree', function () {
+        const binaryTree = new BinaryTree;
+
+        binaryTree.add(4).add(2).add(6).add(1).add(3).add(5).add(7);
+
+        binaryTree.invert();
+
+        expect(binaryTree.preOrder()).deep.equal([7, 6, 5, 4, 3, 2, 1]);
+    });
+
+    it('should find node use binary search', function () {
+        const binarySearchTree = new BinarySearchTree;
+
+        binarySearchTree.add(4).add(2).add(6).add(1).add(3).add(5).add(7);
+
+        expect(binarySearchTree.find(6).value).equal(6);
+
+        expect(binarySearchTree.find(9)).be.null;
     });
 
 });
