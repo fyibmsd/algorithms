@@ -102,4 +102,19 @@ export default class BinaryTree {
         return result;
     }
 
+    // invert binary tree
+    invert(node = undefined) {
+        if (node === undefined)
+            node = this.root;
+
+        if (node === null)
+            return null;
+
+        [node.left, node.right] = [node.right, node.left];
+
+        this.invert(node.left);
+        this.invert(node.right);
+
+        return node;
+    }
 }
