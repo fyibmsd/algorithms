@@ -1,5 +1,7 @@
 import LinkedList from './linked-list';
 import DoubleLinkedList from './double-linked-list';
+import Queue from './queue';
+import Stack from './stack';
 
 import { expect } from 'chai';
 
@@ -106,4 +108,50 @@ describe('test double linked list', () => {
 
     });
 
+});
+
+describe('test queue', () => {
+    it('should first in first out', () => {
+        const queue = new Queue<number>();
+
+        expect(queue.size()).equal(0);
+        expect(queue.isEmpty()).be.true;
+
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+
+        expect(queue.size()).equal(3);
+
+        expect(queue.dequeue()).equal(1);
+        expect(queue.dequeue()).equal(2);
+
+        expect(queue.peek()).equal(3);
+
+        expect(queue.dequeue()).equal(3);
+        expect(queue.dequeue()).be.null;
+    });
+});
+
+describe('test stack', () => {
+    it('should first in last out', () => {
+        const stack = new Stack<number>();
+
+        expect(stack.size()).equal(0);
+        expect(stack.isEmpty()).be.true;
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+
+        expect(stack.size()).equal(3);
+
+        expect(stack.pop()).equal(3);
+        expect(stack.pop()).equal(2);
+
+        expect(stack.peek()).equal(1);
+
+        expect(stack.pop()).equal(1);
+        expect(stack.pop()).be.null;
+    });
 });

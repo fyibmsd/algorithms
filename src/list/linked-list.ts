@@ -83,6 +83,23 @@ export default class LinkedList<T> {
         return tail.value;
     }
 
+    peek(): T {
+        if (this.isEmpty())
+            return null;
+
+        return this.head.value;
+    }
+
+    size(): number {
+        return this.length;
+    }
+
+    clear() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+
     isEmpty(): boolean {
         return this.length === 0;
     }
