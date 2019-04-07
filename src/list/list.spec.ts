@@ -25,5 +25,14 @@ describe('test linked list', () => {
         list.pushBack(3);
 
         expect(list.tail.value).equal(3);
+
+        expect(list.popFront()).equal(2);
+        expect(list.length).equal(2);
+
+        expect(list.popBack()).equal(3);
+        expect(list.length).equal(1);
+
+        expect(list.popBack()).equal(1);
+        expect(list.isEmpty()).be.true;
     });
 });

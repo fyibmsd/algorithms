@@ -44,12 +44,41 @@ export default class LinkedList<T> {
         this.length++;
     }
 
-    popFront() {
-        
+    // T = O(1)
+    popFront(): T {
+        if (this.isEmpty())
+            return null;
+
+        let node = this.head;
+        this.head = this.head.next;
+        this.length--;
+
+        return node.value;
     }
 
-    popBack() {
+    popBack(): T {
+        if (this.isEmpty())
+            return null;
 
+        let next = this.head;
+        let tail = this.tail;
+
+        while (next.next && next.next.next)
+            next = next.next;
+
+        if (next === tail)
+            this.tail = null;
+        else
+            this.tail = next;
+
+        next.next = null;
+        this.length--;
+
+        return tail.value;
+    }
+
+    isEmpty(): boolean {
+        return this.length === null;
     }
 
 }
