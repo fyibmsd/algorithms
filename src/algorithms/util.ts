@@ -1,3 +1,12 @@
-const swap = (array, x, y) => [array[x], array[y]] = [array[y], array[x]];
+const swap = (o, x, y) => [o[x], o[y]] = [o[y], o[x]];
 
-export { swap };
+const range = (start, end, step = 1) => {
+    let array = [];
+
+    for (let i = start; i <= end; i++)
+        array.push(i * step);
+
+    return array;
+};
+
+export { swap, range };
