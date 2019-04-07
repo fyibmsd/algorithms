@@ -56,6 +56,7 @@ export default class LinkedList<T> {
         return node.value;
     }
 
+    // T = O(n)
     popBack(): T {
         if (this.isEmpty())
             return null;
@@ -78,7 +79,7 @@ export default class LinkedList<T> {
     }
 
     isEmpty(): boolean {
-        return this.length === null;
+        return this.length === 0;
     }
 
 }
