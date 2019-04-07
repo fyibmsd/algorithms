@@ -12,6 +12,7 @@ export default class LinkedList<T> {
 
     length: number = 0;
 
+    // T = O(1)
     pushFront(value: T) {
         let node: ListNode<T> = {
             value,
@@ -51,6 +52,10 @@ export default class LinkedList<T> {
 
         let node = this.head;
         this.head = this.head.next;
+
+        if (this.head === null)
+            this.tail = null;
+
         this.length--;
 
         return node.value;
