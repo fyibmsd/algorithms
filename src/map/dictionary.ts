@@ -9,6 +9,10 @@ export default class Dictionary<K, V> {
         return this.items[key];
     }
 
+    remove(key: K) {
+        delete this.items[key];
+    }
+
     keys() {
         return Object.keys(this.items);
     }
