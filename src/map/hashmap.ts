@@ -1,6 +1,7 @@
 import Dictionary from './dictionary';
 
 export default class Hashmap<V> {
+    // use dict to resolve conflict
     private values: Array<Dictionary<string, V>> = [];
 
     put(key: string, value: V) {

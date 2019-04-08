@@ -32,6 +32,7 @@ describe('test hashmap', () => {
         expect(map.get('hello')).equal('world');
         expect(map.get('world')).equal('hello');
 
+        // hash(hello) == hash(earth)
         expect(map.get('earth')).be.undefined;
     });
 });

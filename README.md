@@ -8,6 +8,9 @@
 - 双向链表 (double linked list)
 - 队列 (queue)
 - 栈 (stack)
+- 集合 (set)
+- 字典 (dictionary)
+- 哈希表 (hashmap)
 
 #### 树形结构
 - 二叉树
