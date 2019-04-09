@@ -1,12 +1,14 @@
 import BinaryTree from './binary-tree';
 import BinarySearchTree from './binary-search-tree';
+import AVLTree from './avl-tree';
+import { range } from '../algorithms/util';
 
 import { expect } from 'chai';
 
 describe('test binary tree', () => {
 
     it('should create empty tree', () => {
-        const binaryTree = new BinaryTree;
+        const binaryTree = new BinaryTree<number>();
 
         expect(binaryTree.root).be.null;
     });
@@ -25,7 +27,7 @@ describe('test binary tree', () => {
      *     1  2  3  4  5  6  7
      * */
     it('should create complete binary tree', () => {
-        const binaryTree = new BinaryTree;
+        const binaryTree = new BinaryTree<number>();
 
         binaryTree.add(4).add(2).add(6).add(1).add(3).add(5).add(7);
 
@@ -35,7 +37,7 @@ describe('test binary tree', () => {
     });
 
     it('should traverse tree', () => {
-        const binaryTree = new BinaryTree;
+        const binaryTree = new BinaryTree<number>();
 
         binaryTree.add(4).add(2).add(6).add(1).add(3).add(5).add(7);
 
@@ -47,7 +49,7 @@ describe('test binary tree', () => {
     });
 
     it('should invert binary tree', function () {
-        const binaryTree = new BinaryTree;
+        const binaryTree = new BinaryTree<number>();
 
         binaryTree.add(4).add(2).add(6).add(1).add(3).add(5).add(7);
 
@@ -57,7 +59,7 @@ describe('test binary tree', () => {
     });
 
     it('should find node use binary search', function () {
-        const binarySearchTree = new BinarySearchTree;
+        const binarySearchTree = new BinarySearchTree<number>();
 
         binarySearchTree.add(4).add(2).add(6).add(1).add(3).add(5).add(7);
 
@@ -66,4 +68,11 @@ describe('test binary tree', () => {
         expect(binarySearchTree.find(9)).be.null;
     });
 
+    it('should alv tree auto balance', () => {
+        const avlTree = new AVLTree<number>();
+
+        expect(avlTree.getRoot()).be.null;
+
+        range(1, 10).map(value => avlTree.insert(value));
+    });
 });

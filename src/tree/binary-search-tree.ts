@@ -1,9 +1,9 @@
 import BinaryTree from './binary-tree';
 
-export default class BinarySearchTree extends BinaryTree {
+export default class BinarySearchTree<T> extends BinaryTree<T> {
 
     // binary search
-    find(value) {
+    find(value: T) {
         let current = this.root;
 
         while (current) {

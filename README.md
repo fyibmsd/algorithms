@@ -18,6 +18,7 @@
     - 遍历
     - 反转
 - 二叉查找树 (binary search tree)
+- AVL树
 
 #### 排序算法
 - 冒泡排序 (bubble sort)

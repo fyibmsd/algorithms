@@ -8,12 +8,12 @@ interface TreeNode {
     right: TreeNode
 }
 
-export default class BinaryTree {
+export default class BinaryTree<T> {
 
     root: TreeNode = null;
 
     // build binary tree
-    add(value) {
+    add(value: T) {
         let node: TreeNode = {
             value,
             left : null,
@@ -100,6 +100,10 @@ export default class BinaryTree {
         order(this.root);
 
         return result;
+    }
+
+    getRoot() {
+        return this.root;
     }
 
     // invert binary tree
