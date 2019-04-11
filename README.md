@@ -20,6 +20,10 @@
 - 二叉查找树 (binary search tree)
 - AVL树
 
+
+#### 图
+- 无向图 (undirected graph)
+
 #### 排序算法
 - 冒泡排序 (bubble sort)
 - 快速排序 (quick sort)
