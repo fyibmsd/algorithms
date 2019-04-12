@@ -1,5 +1,6 @@
 import Dictionary from '../map/dictionary';
 import { breadthFirstSearch } from './breadth-first-search';
+import { depthFirstSearch } from './depth-first-search';
 
 export default class Graph<T> {
     private vertices: any = [];
@@ -30,6 +31,10 @@ export default class Graph<T> {
 
     bfs(startVertex: T, callback?: Function) {
         return breadthFirstSearch(this, startVertex, callback);
+    }
+
+    dfs(callback?: Function) {
+        return depthFirstSearch(this, callback);
     }
 
     getVertices() {
