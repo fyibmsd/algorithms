@@ -3,8 +3,18 @@ import { expect } from 'chai';
 
 describe('test graph', () => {
 
-    it('should be undirected graph', () => {
-        const graph = new Graph<string>();
+    let graph: Graph<string>;
+    let vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+    let edges = {
+        'A': ['B', 'C', 'D'],
+        'B': ['E', 'F'],
+        'C': ['D', 'G'],
+        'D': ['G', 'H'],
+        'E': ['I']
+    };
+
+    beforeEach(() => {
+        graph = new Graph<string>();
 
         /**
          *                  A
@@ -15,15 +25,6 @@ describe('test graph', () => {
          *           /
          *          I
          * */
-        const vertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
-        const edges = {
-            'A': ['B', 'C', 'D'],
-            'B': ['E', 'F'],
-            'C': ['D', 'G'],
-            'D': ['G', 'H'],
-            'E': ['I']
-        };
-
         vertices.map(vertex => graph.addVertex(vertex));
 
         Object.keys(edges).map(src =>
@@ -31,7 +32,9 @@ describe('test graph', () => {
                 graph.addEdge(src, dest)
             )
         );
+    });
 
+    it('should be undirected graph', () => {
         expect(graph.vertexCount()).equal(vertices.length);
 
         expect(graph.edgeCount()).equal(10);
@@ -48,6 +51,13 @@ describe('test graph', () => {
             ['H', 'D'],
             ['I', 'E']
         ]);
+    });
+
+    it('should breadth first search', () => {
+        let expected = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+        let counter = 0;
+
+        graph.bfs(vertices[0], visited => expect(visited).equal(expected[counter++]));
     });
 
 });

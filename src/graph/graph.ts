@@ -1,4 +1,5 @@
 import Dictionary from '../map/dictionary';
+import { breadthFirstSearch } from './breadth-first-search';
 
 export default class Graph<T> {
     private vertices: any = [];
@@ -25,6 +26,18 @@ export default class Graph<T> {
         this.adjacent.get(dest).push(src);
 
         this.edges++;
+    }
+
+    bfs(startVertex: T, callback: Function) {
+        return breadthFirstSearch(this, startVertex, callback);
+    }
+
+    getVertices() {
+        return this.vertices;
+    }
+
+    getAdjacent(): Dictionary<T, T[]> {
+        return this.adjacent;
     }
 
     toArray() {
