@@ -3,11 +3,11 @@ import { breadthFirstSearch } from './breadth-first-search';
 import { depthFirstSearch } from './depth-first-search';
 
 export default class Graph<T> {
-    private vertices: any = [];
+    protected vertices: any = [];
 
-    private edges: number = 0;
+    protected edges: number = 0;
 
-    private adjacent: Dictionary<T, T[]> = new Dictionary<T, T[]>();
+    protected adjacent: Dictionary<T, any> = new Dictionary<T, T[]>();
 
     vertexCount() {
         return this.vertices.length;
@@ -22,7 +22,7 @@ export default class Graph<T> {
         this.adjacent.set(vertex, []);
     }
 
-    addEdge(src: T, dest: T) {
+    addEdge(src: T, dest: T, weight?: number) {
         this.adjacent.get(src).push(dest);
         this.adjacent.get(dest).push(src);
 
@@ -45,6 +45,9 @@ export default class Graph<T> {
         return this.adjacent;
     }
 
+    /**
+     * get adjacency list
+     * */
     toArray() {
         return this.adjacent.keys().map((key: any) => {
             const row = this.adjacent.get(key).concat();

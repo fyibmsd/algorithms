@@ -1,5 +1,7 @@
 import Graph from './graph';
 import { expect } from 'chai';
+import WeightedGraph from './weighted-graph';
+import markdown = Mocha.reporters.markdown;
 
 describe('test graph', () => {
 
@@ -72,5 +74,44 @@ describe('test graph', () => {
         let counter = 0;
 
         graph.dfs(visited => expect(visited).equal(expected[counter++]));
+    });
+});
+
+describe('test weighted graph', () => {
+    let graph: WeightedGraph<string>;
+
+    it('should be weighted graph', () => {
+        graph = new WeightedGraph<string>();
+        let vertices = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+        vertices.map(vertex => graph.addVertex(vertex));
+
+        //  adjacency matrix
+        const matrix = [
+            [0, 2, 4, 0, 0, 0],
+            [0, 0, 1, 4, 2, 0],
+            [0, 0, 0, 0, 3, 0],
+            [0, 0, 0, 0, 0, 2],
+            [0, 0, 0, 3, 0, 2],
+            [0, 0, 0, 0, 0, 0]];
+
+        matrix.map((row, y) => matrix[y].map((weight, x) =>
+            graph.addEdge(vertices[x], vertices[y], weight)
+        ));
+
+        expect(graph.vertexCount()).equal(vertices.length);
+
+        expect(graph.edgeCount()).equal(9);
+
+        // adjacency list
+        expect(graph.toArray()).deep.equal([
+            ['A', 'B', 'C'],
+            ['B', 'C', 'D', 'E'],
+            ['C', 'E'],
+            ['D', 'F'],
+            ['E', 'D', 'F'],
+            ['F']
+        ]);
+
     });
 });
