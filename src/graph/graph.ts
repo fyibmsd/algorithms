@@ -28,7 +28,7 @@ export default class Graph<T> {
         this.edges++;
     }
 
-    bfs(startVertex: T, callback: Function) {
+    bfs(startVertex: T, callback?: Function) {
         return breadthFirstSearch(this, startVertex, callback);
     }
 

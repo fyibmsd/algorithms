@@ -60,4 +60,11 @@ describe('test graph', () => {
         graph.bfs(vertices[0], visited => expect(visited).equal(expected[counter++]));
     });
 
+
+    it('should shortest path', () => {
+        const { distances, predecessors } = graph.bfs(vertices[0]);
+
+        expect(distances).to.deep.equal({ A: 0, B: 1, C: 1, D: 1, E: 2, F: 2, G: 2, H: 2, I: 3 });
+        expect(predecessors).to.deep.equal({ A: null, B: 'A', C: 'A', D: 'A', E: 'B', F: 'B', G: 'C', H: 'D', I: 'E' });
+    });
 });
