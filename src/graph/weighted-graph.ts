@@ -21,6 +21,24 @@ export default class WeightedGraph<T> extends Graph<T> {
         }
     }
 
+    reachable(src: T, dest: T): boolean {
+        if (src === dest) return true;
+
+        const edge: Edge<T> = this.adjacent.get(src).filter(edge => edge.dest === dest)[0];
+
+        return edge !== undefined && edge.weight > 0;
+    }
+
+    getDistance(src: T, dest: T): number {
+        if (src === dest) return 0;
+
+        const edge: Edge<T> = this.adjacent.get(src).filter(edge => edge.dest === dest)[0];
+
+        if (edge === undefined) return 0;
+
+        return edge.weight;
+    }
+
     /**
      * get adjacency list
      * */

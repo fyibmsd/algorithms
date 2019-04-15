@@ -1,7 +1,7 @@
 import Graph from './graph';
 import { expect } from 'chai';
 import WeightedGraph from './weighted-graph';
-import markdown = Mocha.reporters.markdown;
+import { dijkstra } from './dijkstra';
 
 describe('test graph', () => {
 
@@ -79,29 +79,44 @@ describe('test graph', () => {
 
 describe('test weighted graph', () => {
     let graph: WeightedGraph<string>;
+    let vertices = ['A', 'B', 'C', 'D', 'E', 'F'];
 
-    it('should be weighted graph', () => {
+    beforeEach(() => {
+        /**    weighted graph
+         *
+         *            ④
+         *         B ---- D
+         *    ②/  | \    |  \②
+         *   A   ②| ②\  |③  F
+         *   ④\   |    \ |  /②
+         *       C -----  E
+         *           ③
+         * */
         graph = new WeightedGraph<string>();
-        let vertices = ['A', 'B', 'C', 'D', 'E', 'F'];
 
         vertices.map(vertex => graph.addVertex(vertex));
 
         //  adjacency matrix
         const matrix = [
             [0, 2, 4, 0, 0, 0],
-            [0, 0, 1, 4, 2, 0],
+            [0, 0, 2, 4, 2, 0],
             [0, 0, 0, 0, 3, 0],
             [0, 0, 0, 0, 0, 2],
             [0, 0, 0, 3, 0, 2],
             [0, 0, 0, 0, 0, 0]];
 
-        matrix.map((row, y) => matrix[y].map((weight, x) =>
+        matrix.map((row, x) => matrix[x].map((weight, y) =>
             graph.addEdge(vertices[x], vertices[y], weight)
         ));
+    });
 
+    it('should be weighted directed graph', () => {
         expect(graph.vertexCount()).equal(vertices.length);
 
         expect(graph.edgeCount()).equal(9);
+
+        expect(graph.reachable('A', 'B')).be.true;
+        expect(graph.reachable('B', 'A')).be.false;
 
         // adjacency list
         expect(graph.toArray()).deep.equal([
@@ -113,5 +128,10 @@ describe('test weighted graph', () => {
             ['F']
         ]);
 
+    });
+
+    it('should get shortest path by Dijkstra\'s Algorithm', () => {
+        expect(dijkstra(graph, 'A')).deep
+            .equals({ 'A': 0, 'B': 2, 'C': 4, 'D': 6, 'E': 4, 'F': 6 });
     });
 });
