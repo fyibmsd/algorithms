@@ -24,6 +24,7 @@
 #### 图
 - 无向图 (undirected graph)
 - 加权图 (weighted graph)
+- 迪氏最短路径算法 (dijkstra)
 
 #### 排序算法
 - 冒泡排序 (bubble sort)
