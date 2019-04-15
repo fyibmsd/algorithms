@@ -45,8 +45,8 @@ export default class WeightedGraph<T> extends Graph<T> {
     toArray() {
         return this.adjacent.keys().map((key: any) => {
             const row = this.adjacent.get(key)
-                .filter(({ dest }) => dest === key)
-                .map(({ src }) => src);
+                .filter(({ src }) => src === key)
+                .map(({ dest }) => dest);
 
             row.unshift(key);
 
