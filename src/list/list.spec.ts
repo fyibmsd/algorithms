@@ -4,6 +4,7 @@ import Queue from './queue';
 import Stack from './stack';
 
 import { expect } from 'chai';
+import PriorityQueue from './priority-queue';
 
 describe('test linked list', () => {
     it('should create empty list', () => {
@@ -154,4 +155,25 @@ describe('test stack', () => {
         expect(stack.pop()).equal(1);
         expect(stack.pop()).be.null;
     });
+});
+
+describe('test priority queue', () => {
+
+    it('should have priority', () => {
+        const queue = new PriorityQueue<string>();
+        const elements = [
+            { value: 'A', weight: 8 },
+            { value: 'B', weight: 4 },
+            { value: 'C', weight: 6 },
+            { value: 'D', weight: 1 },
+            { value: 'E', weight: 3 }
+        ];
+
+
+        elements.map(({ value, weight }) => queue.enqueue(value, weight));
+
+        ['D', 'E', 'B', 'C', 'A'].map(element => expect(queue.dequeue()).equal(element));
+    });
+
+
 });
