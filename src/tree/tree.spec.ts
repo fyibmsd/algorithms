@@ -1,6 +1,7 @@
 import BinaryTree from './binary-tree';
 import BinarySearchTree from './binary-search-tree';
 import AVLTree from './avl-tree';
+import SegmentTree from './segment-tree';
 import { range } from '../algorithms/util';
 
 import { expect } from 'chai';
@@ -74,5 +75,24 @@ describe('test binary tree', () => {
         expect(avlTree.getRoot()).be.null;
 
         range(1, 10).map(value => avlTree.insert(value));
+    });
+
+    it('should range sum by segment tree', () => {
+        const array = [1, 3, 5, 7, 9, 11];
+        const tree = new SegmentTree<number>(array);
+
+        expect(tree.root.value).equal(36);
+        expect(tree.root.left.value).equal(9);
+        expect(tree.root.right.value).equal(27);
+
+        tree.update(4, 6);
+
+        expect(tree.root.value).equal(33);
+        expect(tree.root.left.value).equal(9);
+        expect(tree.root.right.value).equal(24);
+
+        const result = tree.query(2, 5);
+
+        expect(result).equal(29);
     });
 });

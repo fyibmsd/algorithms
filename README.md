@@ -19,6 +19,7 @@
     - 反转
 - 二叉查找树 (binary search tree)
 - AVL树
+- 线段树 (segment tree)
 
 
 #### 图
