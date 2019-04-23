@@ -27,18 +27,17 @@ class Iterator {
         const next = this.iterator.next;
         this.iterator = next;
 
-        return next.value;
+        return next.value.value;
     }
 }
 
-export default class LinkedHashMap<T> extends HashMap<DListNode<T>> {
-    list: DoubleLinkedList<T>;
+interface KVPair<T> {
+    key: string
+    value: T
+}
 
-    constructor() {
-        super();
-
-        this.list = new DoubleLinkedList<T>();
-    }
+export default class LinkedHashMap<T> extends HashMap<DListNode<KVPair<T>>> {
+    list: DoubleLinkedList<KVPair<T>> = new DoubleLinkedList<KVPair<T>>();
 
     iterator(): Iterator {
         return new Iterator(this);
@@ -48,7 +47,7 @@ export default class LinkedHashMap<T> extends HashMap<DListNode<T>> {
      * T = O(1)
      * */
     put(key: string, value: any) {
-        this.list.pushBack(value);
+        this.list.pushBack({ key, value });
         super.put(key, this.list.tail);
     }
 
@@ -58,9 +57,13 @@ export default class LinkedHashMap<T> extends HashMap<DListNode<T>> {
     get(key: string): any {
         const node = super.get(key);
 
-        return node ? node.value : null;
+        return node ? node.value.value : null;
     }
 
+
+    peek(): T {
+        return this.list.tail.value.value;
+    }
 
     /**
      * T = O(1)

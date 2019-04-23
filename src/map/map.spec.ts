@@ -40,7 +40,7 @@ describe('test hashmap', () => {
 
 describe('test linked hashmap', () => {
     it('should be orderd hashmap', () => {
-        const map = new LinkedHashMap;
+        const map = new LinkedHashMap<string>();
 
         const values = { 'apple': 'apple.com', 'ibm': 'ibm.com', 'google': 'google.com' };
         const keys = Object.keys(values);

@@ -3,6 +3,9 @@
 [![Build Status](https://travis-ci.org/fyibmsd/algorithms.svg?branch=master)](https://travis-ci.org/fyibmsd/algorithms)
 
 
+#### 算法
+- LRU (least recently used)
+
 #### 链式结构
 - 单链表 (linked list)
 - 双向链表 (double linked list)

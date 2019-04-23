@@ -105,16 +105,17 @@ export default class DoubleLinkedList<T> extends LinkedList<T> {
     }
 
     removeAt(pos: DListNode<T>): T {
-        if (this.isEmpty())
-            return null;
+        if (this.isEmpty()) return null;
 
-        if (pos.prev === null) {
-            pos.next.prev = null;
-        } else {
-            pos.prev.next = pos.next;
-            pos.next.prev = pos.prev;
-        }
+        if (pos.prev === null) return this.popFront();
 
+        if (pos.next === null) return this.popBack();
+
+        pos.prev.next = pos.next;
+        pos.next.prev = pos.prev;
+
+        pos.next = null;
+        pos.prev = null;
         this.length--;
 
         return pos.value;

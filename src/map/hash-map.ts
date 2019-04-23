@@ -2,9 +2,9 @@ import Dictionary from './dictionary';
 
 export default class HashMap<V> {
     // use dict to resolve conflict
-    private values: Array<Dictionary<string, V>> = [];
+    protected values: Array<Dictionary<string, V>> = [];
 
-    private count: number = 0;
+    protected count: number = 0;
 
     put(key: string, value: V) {
         const pos = this.loseloseHashCode(key);
