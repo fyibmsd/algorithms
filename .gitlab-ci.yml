@@ -4,7 +4,7 @@ cache:
   paths:
   - node_modules/
 
-test_async:
+test:
   script:
   - npm install
   - npm run test
