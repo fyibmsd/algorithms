@@ -1,6 +1,6 @@
 import LinkedList from './linked-list';
 
-interface DListNode<T> {
+export interface DListNode<T> {
     value: T
 
     prev: DListNode<T>

@@ -1,8 +1,10 @@
 import Dictionary from './dictionary';
 
-export default class Hashmap<V> {
+export default class HashMap<V> {
     // use dict to resolve conflict
     private values: Array<Dictionary<string, V>> = [];
+
+    private count: number = 0;
 
     put(key: string, value: V) {
         const pos = this.loseloseHashCode(key);
@@ -11,15 +13,24 @@ export default class Hashmap<V> {
             this.values[pos] = new Dictionary;
         }
 
+        this.count++;
         this.values[pos].set(key, value);
     }
 
     get(key: string): V {
-        return this.values[this.loseloseHashCode(key)].get(key);
+        const node = this.values[this.loseloseHashCode(key)];
+
+        return node ? node.get(key) : null;
     }
 
     remove(key: string) {
+        this.count--;
+
         return this.values[this.loseloseHashCode(key)].remove(key);
+    }
+
+    size() {
+        return this.count;
     }
 
     private loseloseHashCode(key: string): number {

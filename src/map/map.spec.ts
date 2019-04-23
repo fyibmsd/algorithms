@@ -1,5 +1,6 @@
 import Dictionary from './dictionary';
-import Hashmap from './hashmap';
+import HashMap from './hash-map';
+import LinkedHashMap from './linked-hash-map';
 
 import { expect } from 'chai';
 
@@ -24,7 +25,7 @@ describe('test dictionary', () => {
 
 describe('test hashmap', () => {
     it('should resolve conflict', () => {
-        const map = new Hashmap;
+        const map = new HashMap;
 
         map.put('hello', 'world');
         map.put('world', 'hello');
@@ -34,5 +35,31 @@ describe('test hashmap', () => {
 
         // hash(hello) == hash(earth)
         expect(map.get('earth')).be.undefined;
+    });
+});
+
+describe('test linked hashmap', () => {
+    it('should be orderd hashmap', () => {
+        const map = new LinkedHashMap;
+
+        const values = { 'apple': 'apple.com', 'ibm': 'ibm.com', 'google': 'google.com' };
+        const keys = Object.keys(values);
+
+        keys.map(key => map.put(key, values[key]));
+
+        const iterator = map.iterator();
+
+        let offset = 0;
+
+        while (iterator.hasNext()) {
+            expect(iterator.next()).equal(map.get(keys[offset++]));
+        }
+
+        expect(map.get('ibm')).equal('ibm.com');
+
+        map.remove('ibm');
+
+        expect(map.get('ibm')).be.null;
+        expect(map.size()).equal(2);
     });
 });

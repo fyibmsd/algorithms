@@ -10,7 +10,8 @@
 - 栈 (stack)
 - 集合 (set)
 - 字典 (dictionary)
-- 哈希表 (hashmap)
+- 哈希表 (hash map)
+- 哈希链表 (linked hash map)
 
 #### 树形结构
 - 二叉树
