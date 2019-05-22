@@ -2,6 +2,7 @@ import BinaryTree from './binary-tree';
 import BinarySearchTree from './binary-search-tree';
 import AVLTree from './avl-tree';
 import SegmentTree from './segment-tree';
+import HuffmanTree from './huffman-tree';
 import { range } from '../algorithms/util';
 
 import { expect } from 'chai';
@@ -94,5 +95,14 @@ describe('test binary tree', () => {
         const result = tree.query(2, 5);
 
         expect(result).equal(29);
+    });
+
+    it('should create huffman tree', () => {
+        const tree = new HuffmanTree<number>();
+        const array = [1, 2, 3, 4, 5];
+
+        tree.build(array);
+
+        expect(tree.getRoot().value).equals(array.reduce((a, b) => a + b));
     });
 });
