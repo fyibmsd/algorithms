@@ -1,5 +1,6 @@
 import BubbleSort from './bubble-sort';
 import SelectionSort from './selection-sort';
+import InsertionSort from './insertion-sort';
 import MergeSort from './merge-sort';
 
 import { expect } from 'chai';
@@ -15,6 +16,8 @@ describe('test sort', () => {
     test('test bubble sort', BubbleSort);
 
     test('test selection sort', SelectionSort);
+
+    test('test insertion sort', InsertionSort);
 
     test('test merge sort', MergeSort);
 
