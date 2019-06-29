@@ -1,8 +1,8 @@
 const { floor } = Math;
 
-/**
+/*
  * Merge Sort
- * */
+ */
 export default function MergeSort(array) {
     let { length } = array;
 

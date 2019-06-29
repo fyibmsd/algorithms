@@ -1,10 +1,9 @@
 import { swap } from '../algorithms/util';
 
-/**
+/*
  * Bubble Sort
- * */
-
-export default array => {
+ */
+export default function BubbleSort(array) {
     let length = array.length;
 
     for (let i = 0; i < length; i++)
